@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+        name: firstrc
+        labels:
+                first: hello
+spec:
+        replicas: 4
+        template:
+                metadata:
+                        name: firstpod
+                        labels:
+                                type: app
+                spec:
+                        containers:
+                                - name: fistcontainer
+                                  image: coolgourav147/nginx-custom

@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+        name: nginxcontain
+        labels:
+                label1: jatin
+                label2: prod
+spec:
+        containers:
+                - name: nginx1
+                  image: coolgourav147/nginx-custom
+                  env:
+                          - name: myname
+                            value: legend
+                          - name: lastname
+                            value: kiosk
+                  args: ["sleep", "70"]
+                - name: nginx2
+                  image: coolgourav147/nginx-custom
+        initContainers:
+                - name: initcontainer
+                  image: ubuntu
+                  env:
+                          - name: myname
+                            value: jatin
+                          - name: city
+                            value: kanina
+                  args: ["sleep", "50"]

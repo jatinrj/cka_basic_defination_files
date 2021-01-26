@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: firstdeploy
+        labels:
+                deploy1: deploy_test
+spec:
+        replicas: 7
+        selector:
+                matchLabels:
+                        type: app
+        template:
+                metadata:
+                        name: pod
+                        labels:
+                                type: app
+                spec:
+                        containers:
+                                - name: container
+                                  image: coolgourav147/nginx-custom
+
